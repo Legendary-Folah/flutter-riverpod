@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_files/providers/products_provider.dart';
 
-class CartScreen extends StatefulWidget {
+class CartScreen extends ConsumerStatefulWidget {
   const CartScreen({super.key});
 
   @override
-  State<CartScreen> createState() => _CartScreenState();
+  ConsumerState<CartScreen> createState() => _CartScreenState();
 }
 
-class _CartScreenState extends State<CartScreen> {
+class _CartScreenState extends ConsumerState<CartScreen> {
   bool showCoupon = true;
 
   @override
   Widget build(BuildContext context) {
+    final cartProducts = ref.watch(reducedProductsProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Cart'),
@@ -20,10 +23,48 @@ class _CartScreenState extends State<CartScreen> {
       ),
       body: Container(
         padding: const EdgeInsets.all(30),
-        child: const Column(
+        child: Column(
           children: [
             Column(
-              children: [], // output cart products here
+              children: cartProducts.map((product) {
+                return Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(
+                            product.image,
+                            width: 60,
+                            height: 60,
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            product.title,
+                            style: const TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                          const Expanded(child: SizedBox()),
+                          Text(
+                            "£ ${product.price}",
+                            style: const TextStyle(
+                              fontSize: 18,
+                            ),
+                          )
+                        ],
+                      ),
+                      Divider(
+                        color: Colors.black.withOpacity(0.6),
+                      )
+                    ],
+                  ),
+                );
+              }).toList(), // output cart products here
             ),
 
             // output totals here

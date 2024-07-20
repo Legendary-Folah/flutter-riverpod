@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_files/providers/products_provider.dart';
+import 'package:riverpod_files/screens/details/details.dart';
 import 'package:riverpod_files/shared/cart_icon.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -32,36 +33,47 @@ class HomeScreen extends ConsumerWidget {
             childAspectRatio: 0.9,
           ),
           itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.blueGrey.withOpacity(0.09),
-              ),
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    allProducts[index].image,
-                    width: 70,
-                    height: 60,
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProductsDetails(),
                   ),
-                  Text(
-                    allProducts[index].title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.blueGrey.withOpacity(0.09),
+                ),
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      allProducts[index].image,
+                      width: 70,
+                      height: 60,
                     ),
-                  ),
-                  Text(
-                    "£ ${allProducts[index].price}",
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
+                    Text(
+                      allProducts[index].title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  )
-                ],
+                    Text(
+                      "£ ${allProducts[index].price}",
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           },
