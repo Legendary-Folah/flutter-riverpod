@@ -52,13 +52,14 @@ final titleProvider = Provider((ref) {
   return title;
 });
 
-final reducedProductsProvider = Provider((ref) {
-  return allProducts.where((p) => p.price < 50).toList();
-});
-
 // generated Providers
 
 @riverpod
 List<Product> products(ref) {
   return allProducts;
+}
+
+@riverpod
+List<Product> reducedProducts(ref) {
+  return allProducts.where((p) => p.price < 50).toList();
 }
