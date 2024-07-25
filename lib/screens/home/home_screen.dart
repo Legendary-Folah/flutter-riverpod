@@ -18,9 +18,7 @@ class HomeScreen extends ConsumerWidget {
             letterSpacing: 1.5,
           ),
         ),
-        actions: const [
-          CartIcon(),
-        ],
+        actions: const [CartIcon()],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
