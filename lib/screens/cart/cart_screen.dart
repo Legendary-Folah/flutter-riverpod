@@ -37,8 +37,8 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                         children: [
                           Image.asset(
                             product.image,
-                            width: 60,
-                            height: 60,
+                            width: 50,
+                            height: 50,
                           ),
                           const SizedBox(
                             width: 15,
@@ -46,20 +46,20 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                           Text(
                             product.title,
                             style: const TextStyle(
-                              fontSize: 18,
+                              fontSize: 16,
                             ),
                           ),
                           const Expanded(child: SizedBox()),
                           Text(
                             "£ ${product.price}",
                             style: const TextStyle(
-                              fontSize: 18,
+                              fontSize: 16,
                             ),
                           )
                         ],
                       ),
                       Divider(
-                        color: Colors.black.withOpacity(0.6),
+                        color: Colors.black.withOpacity(0.8),
                       )
                     ],
                   ),

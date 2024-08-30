@@ -15,7 +15,7 @@ class HomeScreen extends ConsumerWidget {
         title: Text(
           ref.read(titleProvider),
           style: const TextStyle(
-            letterSpacing: 1.5,
+            letterSpacing: 1.0,
           ),
         ),
         actions: const [CartIcon()],
@@ -45,7 +45,7 @@ class HomeScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.blueGrey.withOpacity(0.09),
                 ),
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

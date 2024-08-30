@@ -28,8 +28,8 @@ class CartIcon extends StatelessWidget {
           top: 5,
           left: 5,
           child: Container(
-            width: 20,
-            height: 20,
+            width: 18,
+            height: 18,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
