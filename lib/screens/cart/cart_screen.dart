@@ -70,7 +70,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
             Text(
               'Total Price - £ $total',
               style: const TextStyle(
-                fontSize: 22,
+                fontSize: 18,
                 color: Colors.black,
               ),
             )

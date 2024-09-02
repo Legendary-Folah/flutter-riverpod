@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_files/providers/cart_provider.dart';
 import 'package:riverpod_files/screens/cart/cart_screen.dart';
 
-class CartIcon extends StatelessWidget {
+class CartIcon extends ConsumerWidget {
   const CartIcon({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final allAddedProducts = ref.watch(cartNotifierProvider);
     return IconButton(
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(
@@ -15,10 +18,10 @@ class CartIcon extends StatelessWidget {
         ));
       },
       icon: Badge.count(
-        count: 9999,
+        count: allAddedProducts.length,
         child: const Icon(
           Icons.notifications,
-          color: Colors.grey,
+          color: Colors.black12,
           size: 26,
         ),
       ),
