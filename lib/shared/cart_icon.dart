@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_files/providers/cart_provider.dart';
 import 'package:riverpod_files/providers/products_provider.dart';
 import 'package:riverpod_files/screens/cart/cart_screen.dart';
 
@@ -8,7 +9,7 @@ class CartIcon extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final allAddedProducts = ref.watch(productsProvider);
+    final allAddedProducts = ref.watch(cartNotifierProvider);
     return Stack(
       children: [
         IconButton(
