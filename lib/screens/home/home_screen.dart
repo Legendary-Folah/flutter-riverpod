@@ -44,7 +44,7 @@ class HomeScreen extends ConsumerWidget {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(12),
                   color: Colors.blueGrey.withOpacity(0.09),
                 ),
                 padding: const EdgeInsets.all(6),
@@ -78,6 +78,8 @@ class HomeScreen extends ConsumerWidget {
                           ref
                               .read(cartNotifierProvider.notifier)
                               .removeProducts(allProducts[index]);
+                          debugPrint(
+                              "Removed ${allProducts[index].title} from the cart");
                         },
                         child: const Text(
                           'Remove',
@@ -90,6 +92,8 @@ class HomeScreen extends ConsumerWidget {
                           ref
                               .read(cartNotifierProvider.notifier)
                               .addProducts(allProducts[index]);
+                          debugPrint(
+                              "Added ${allProducts[index].title} to the cart");
                         },
                         child: const Text(
                           'Add to Cart',

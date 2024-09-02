@@ -20,7 +20,6 @@ class _CartScreenState extends ConsumerState<CartScreen> {
       appBar: AppBar(
         title: const Text('Your Cart'),
         centerTitle: true,
-        // actions: [],
       ),
       body: Container(
         padding: const EdgeInsets.all(30),
@@ -67,6 +66,14 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                 );
               }).toList(),
             ),
+
+            Text(
+              'Total Price - £ $total',
+              style: const TextStyle(
+                fontSize: 22,
+                color: Colors.black,
+              ),
+            )
 
             // output totals here
           ],
